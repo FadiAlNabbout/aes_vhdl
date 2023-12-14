@@ -38,22 +38,17 @@ entity SubBytes is
 end SubBytes;
 
 architecture Behavioral of SubBytes is
+
 component S_box is port(
-input : in std_logic_vector(7 downto 0);
-output : out std_logic_vector(7 downto 0));
+byte_in : in std_logic_vector(7 downto 0);
+byte_out : out std_logic_vector(7 downto 0));
 end component;
 
 begin
- stim: process
-        variable chunk : std_logic_vector( 7 downto 0);
-        variable a, b : integer;
- 
-    begin
-        for i in 0 to 15 loop
-           a := i * 8;
-           b := (i * 8) + 7;
-           uut : S_box port map( input => input2(a to b), output => output2(a to b));
-        end loop;
-    end process;
+GEN_EXAMPLE1: for i in 0 to 15 generate
+
+    uut : S_box port map( byte_in => input2((i * 8) + 7 downto (i * 8)), byte_out => output2((i * 8) + 7 downto (i * 8)));
+    
+end generate GEN_EXAMPLE1;
 
 end Behavioral;
