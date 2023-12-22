@@ -1,24 +1,3 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 12/21/2023 01:23:45 PM
--- Design Name: 
--- Module Name: Controller - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -61,6 +40,6 @@ begin
     uut2 : counter port map( input => reg_output, output => feedback);
     
     rconst <= reg_output;
-    final_round <= '1' when reg_output = "1010" else '0';
-    done  <= '1' when reg_output = "1011" else '0';
+    final_round <= '1' when reg_output = "1001" else '0';
+    done  <= '1' when reg_output = "1010" else '0';
 end Behavioral;

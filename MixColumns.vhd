@@ -149,9 +149,9 @@ uut24 : LUT_mul3 port map( byte_in => input4(63 downto 56), byte_out => res_3_11
 output4(39 downto 32) <= res_2_11 xor res_3_11 xor input4(47 downto 40) xor input4(55 downto 48);
 
 -- calculate the value for b03
-uut25 : LUT_mul2 port map( byte_in => input4(7 downto 0), byte_out => res_2_12);
-uut26 : LUT_mul3 port map( byte_in => input4(15 downto 8), byte_out => res_3_12);
-output4(31 downto 24) <= res_2_12 xor res_3_12 xor input4(31 downto 24) xor input4(23 downto 16);
+uut25 : LUT_mul2 port map( byte_in => input4(31 downto 24), byte_out => res_2_12);
+uut26 : LUT_mul3 port map( byte_in => input4(23 downto 16), byte_out => res_3_12);
+output4(31 downto 24) <= res_2_12 xor res_3_12 xor input4(15 downto 8) xor input4(7 downto 0);
 
 -- calculate the value for b13
 uut27 : LUT_mul2 port map( byte_in => input4(23 downto 16), byte_out => res_2_13);
